@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seregannj — Portfolio</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #14171a;
+    color: #ffffff;
+    scroll-behavior: smooth;
+}
+
+header {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.hero {
+    max-width: 900px;
+    text-align: center;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(14px);
+    border-radius: 28px;
+    padding: 60px 40px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.hero h1 {
+    font-size: clamp(36px, 8vw, 56px);
+    margin-bottom: 10px;
+}
+
+.hero span {
+    color: #94a3b8;
+    font-size: 20px;
+}
+
+.hero p {
+    margin-top: 25px;
+    font-size: 18px;
+    color: #cbd5e1;
+}
+
+.buttons {
+    margin-top: 35px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.buttons a {
+    padding: 14px 26px;
+    border-radius: 18px;
+    text-decoration: none;
+    color: #ffffff;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+.buttons a:hover {
+    background: rgba(255,255,255,0.15);
+}
+
+section {
+    max-width: 1100px;
+    margin: auto;
+    padding: 80px 20px;
+}
+
+.glass {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(12px);
+    border-radius: 26px;
+    padding: 45px;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.glass h2 {
+    margin-top: 0;
+    font-size: 32px;
+}
+
+.glass p {
+    font-size: 17px;
+    color: #cbd5e1;
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.project {
+    padding: 30px;
+    border-radius: 22px;
+    background: rgba(255,255,255,0.04);
+}
+
+.project h3 {
+    margin-top: 0;
+}
+
+.project p {
+    font-size: 15px;
+}
+
+.project a {
+    display: inline-block;
+    margin-top: 15px;
+    color: #ffffff;
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.skill {
+    padding: 12px 20px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.07);
+    font-size: 15px;
+}
+
+footer {
+    text-align: center;
+    padding: 40px;
+    color: #64748b;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="hero">
+    <h1>Seregannj</h1>
+    <span>Web & IoT Developer</span>
+
+    <p>
+        Занимаюсь разработкой интерактивных веб-проектов и учебных систем
+        умного дома. Интересуюсь автоматизацией, интерфейсами и логикой работы устройств. Не люблю рекламу, поэтому создаю свои проекты полностью бесплатными и без рекламы!
+    </p>
+
+    <div class="buttons">
+        <a href="#projects">Проекты</a>
+        <a href="#contacts">Контакты</a>
+    </div>
+</div>
+</header>
+
+<section id="about">
+<div class="glass">
+<h2>Обо мне</h2>
+<p>
+Я начинающий разработчик, специализирующийся на создании веб-интерфейсов и
+проектов в сфере IoT. Мне интересно разбираться в том, как программный код
+взаимодействует с физическими устройствами и реальным миром.
+</p>
+<p>
+Работаю с чистым HTML, CSS и JavaScript, уделяя внимание структуре, логике
+и удобству пользовательского интерфейса.
+</p>
+</div>
+</section>
+
+<section id="projects">
+<div class="glass">
+<h2>Проекты</h2>
+
+<div class="projects">
+
+<div class="project">
+<h3>SystemHome</h3>
+<p>
+Учебная система умного дома с веб-интерфейсом, 3D-моделью и
+управлением устройствами.
+</p>
+<p><b>Технологии:</b> HTML, CSS, JavaScript, IoT</p>
+<a href="#">Открыть проект →</a>
+</div>
+
+</div>
+</div>
+</section>
+
+<section id="skills">
+<div class="glass">
+<h2>Навыки</h2>
+
+<div class="skills">
+<div class="skill">HTML</div>
+<div class="skill">CSS</div>
+<div class="skill">JavaScript</div>
+<div class="skill">UI / UX</div>
+<div class="skill">Arduino / ESP</div>
+<div class="skill">IoT логика</div>
+</div>
+
+</div>
+</section>
+
+<section id="contacts">
+<div class="glass">
+<h2>Контакты</h2>
+
+<p>📧 Email: <b>seregannj@mail.ru</b></p>
+<p>💻 GitHub: <b>github.com/seregannj</b></p>
+
+</div>
+</section>
+
+<footer>
+© Seregannj • Portfolio
+</footer>
+
+</body>
+</html>
