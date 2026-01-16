@@ -14,6 +14,7 @@ body {
     scroll-behavior: smooth;
 }
 
+/* Hero */
 header {
     min-height: 100vh;
     display: flex;
@@ -69,6 +70,7 @@ header {
     background: rgba(255,255,255,0.15);
 }
 
+/* Sections */
 section {
     max-width: 1100px;
     margin: auto;
@@ -93,16 +95,24 @@ section {
     color: #cbd5e1;
 }
 
+/* Projects */
 .projects {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 25px;
+    margin-top: 25px;
 }
 
 .project {
     padding: 30px;
     border-radius: 22px;
     background: rgba(255,255,255,0.04);
+    transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.project:hover {
+    transform: translateY(-6px);
+    background: rgba(255,255,255,0.08);
 }
 
 .project h3 {
@@ -121,6 +131,7 @@ section {
     opacity: 0.8;
 }
 
+/* Skills */
 .skills {
     display: flex;
     flex-wrap: wrap;
@@ -134,16 +145,25 @@ section {
     font-size: 15px;
 }
 
+/* Footer */
 footer {
     text-align: center;
     padding: 40px;
     color: #64748b;
+}
+
+/* Responsive */
+@media(max-width:600px){
+    .hero{padding:40px 20px;}
+    .glass{padding:30px;}
+    .buttons a{padding:12px 20px;}
 }
 </style>
 </head>
 
 <body>
 
+<!-- Hero Section -->
 <header>
 <div class="hero">
     <h1>Seregannj</h1>
@@ -151,7 +171,7 @@ footer {
 
     <p>
         Занимаюсь разработкой интерактивных веб-проектов и учебных систем
-        умного дома. Интересуюсь автоматизацией, интерфейсами и логикой работы устройств. Не люблю рекламу, поэтому создаю свои проекты полностью бесплатными и без рекламы!
+        умного дома. Интересуюсь автоматизацией, интерфейсами и логикой работы устройств. Создаю свои проекты полностью бесплатными и без рекламы!
     </p>
 
     <div class="buttons">
@@ -161,41 +181,37 @@ footer {
 </div>
 </header>
 
+<!-- About Section -->
 <section id="about">
 <div class="glass">
 <h2>Обо мне</h2>
 <p>
-Я начинающий разработчик, специализирующийся на создании веб-интерфейсов и
-проектов в сфере IoT. Мне интересно разбираться в том, как программный код
-взаимодействует с физическими устройствами и реальным миром.
+Я начинающий разработчик, специализирующийся на создании веб-интерфейсов и проектов в сфере IoT. Мне интересно разбираться в том, как программный код взаимодействует с физическими устройствами и реальным миром.
 </p>
 <p>
-Работаю с чистым HTML, CSS и JavaScript, уделяя внимание структуре, логике
-и удобству пользовательского интерфейса.
+Работаю с чистым HTML, CSS и JavaScript, уделяя внимание структуре, логике и удобству пользовательского интерфейса.
 </p>
 </div>
 </section>
 
+<!-- Projects Section -->
 <section id="projects">
 <div class="glass">
 <h2>Проекты</h2>
-
-<div class="projects">
-
-<div class="project">
-<h3>SystemHome</h3>
-<p>
-Учебная система умного дома с веб-интерфейсом, 3D-моделью и
-управлением устройствами.
-</p>
-<p><b>Технологии:</b> HTML, CSS, JavaScript, IoT</p>
-<a href="#">Открыть проект →</a>
+<p>Некоторые из моих основных проектов</p>
 </div>
 
+<div class="projects">
+<div class="project">
+<h3>SystemHome</h3>
+<p>Учебная система умного дома с веб-интерфейсом, 3D-моделью и управлением устройствами.</p>
+<p><b>Технологии:</b> HTML, CSS, JavaScript, IoT</p>
+<a href="#">Открыть проект →</a>
 </div>
 </div>
 </section>
 
+<!-- Skills Section -->
 <section id="skills">
 <div class="glass">
 <h2>Навыки</h2>
@@ -212,6 +228,7 @@ footer {
 </div>
 </section>
 
+<!-- Contacts Section -->
 <section id="contacts">
 <div class="glass">
 <h2>Контакты</h2>
@@ -222,8 +239,9 @@ footer {
 </div>
 </section>
 
+<!-- Footer -->
 <footer>
-© Seregannj • Portfolio
+© 2026 Seregannj • Portfolio
 </footer>
 
 </body>
