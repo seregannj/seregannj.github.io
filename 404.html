@@ -1,1 +1,397 @@
-<h1 color="blue" align="center"> 404 </h1>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<script>
+  (function(){try{
+    var t=localStorage.getItem('p:theme');
+    if(t!=='light'&&t!=='dark')t=window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
+    document.documentElement.setAttribute('data-theme',t)
+  }catch(e){}})();
+</script>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>404 — Серёга</title>
+<meta name="description" content="404 — страница не найдена">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a0a0a'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23047857'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* ===== 404 specific ===== */
+  .err{
+    min-height:calc(100vh - 64px);
+    display:flex;align-items:center;
+    padding:calc(var(--nav-h) + 1rem) 1.25rem 3rem;
+  }
+  .err-inner{
+    max-width:var(--container);margin:0 auto;width:100%;
+    display:grid;grid-template-columns:1fr;gap:2rem;align-items:center;
+  }
+  .err-code{
+    font-family:var(--mono);
+    font-size:clamp(7rem,22vw,16rem);
+    font-weight:800;line-height:.85;letter-spacing:-.05em;
+    color:var(--ink);
+    display:flex;align-items:baseline;
+  }
+  .err-code .zero{color:var(--accent)}
+  .err-code .cursor{
+    display:inline-block;width:.45em;height:.78em;
+    background:var(--accent);margin-left:.06em;
+    border-radius:2px;flex-shrink:0;
+    animation:errBlink 1s step-end infinite;
+    transform:translateY(-.05em);
+  }
+  @keyframes errBlink{50%{opacity:0}}
+  .err-tag{
+    display:inline-flex;font-family:var(--mono);font-size:.7rem;
+    padding:.3rem .7rem;background:var(--accent-bg-2);color:var(--accent);
+    border:1px solid var(--accent);border-radius:6px;
+    text-transform:uppercase;letter-spacing:.1em;margin-bottom:1rem;
+  }
+  .err-title{
+    font-size:clamp(1.6rem,4.5vw,3rem);
+    font-weight:800;letter-spacing:-.03em;line-height:1.1;
+    margin-bottom:1rem;
+  }
+  .err-title .accent{color:var(--accent)}
+  .err-desc{
+    color:var(--muted);
+    font-size:clamp(.95rem,1.4vw,1.1rem);
+    line-height:1.6;margin-bottom:1.75rem;max-width:520px;
+  }
+  .err-console{
+    font-family:var(--mono);font-size:.78rem;line-height:1.7;
+    background:var(--surface);border:1px solid var(--line);
+    border-radius:var(--r);padding:.85rem 1rem;
+    margin-bottom:1.75rem;overflow:hidden;
+  }
+  .err-console .ln{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .err-console .p{color:var(--muted);margin-right:.4rem;user-select:none}
+  .err-console .k{color:var(--accent)}
+  .err-console .v{color:var(--ink)}
+  .err-console .d{color:var(--muted)}
+  .err-console .cur{color:var(--accent);animation:errBlink 1s step-end infinite}
+  .err-actions{display:flex;gap:.6rem;flex-wrap:wrap}
+  .err-actions .btn-hidden{display:none}
+
+  @media(min-width:600px){
+    .err-console{font-size:.82rem;padding:1rem 1.15rem}
+  }
+  @media(min-width:768px){
+    .err-inner{grid-template-columns:auto 1fr;gap:3rem}
+  }
+  @media(min-width:1024px){
+    .err-inner{grid-template-columns:auto minmax(0,1fr);gap:4.5rem}
+  }
+
+  @media(prefers-reduced-motion:reduce){
+    .err-code .cursor,.err-console .cur{animation:none}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo"><span class="dot"></span>seregannj</a>
+  <ul>
+    <li><a href="index.html#about" data-i18n="nav_about">Обо мне</a></li>
+    <li><a href="index.html#work" data-i18n="nav_work">Проекты</a></li>
+    <li><a href="index.html#roadmap" data-i18n="nav_roadmap">Дорожная карта</a></li>
+    <li><a href="index.html#contact" data-i18n="nav_contact">Контакты</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="icon-btn lang-toggle" id="langToggle" type="button" aria-label="Switch language">EN</button>
+    <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle theme">
+      <svg class="theme-icon moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="theme-icon sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false">
+      <span class="menu-btn-inner"><span></span><span></span><span></span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="nav-backdrop" id="navBackdrop"></div>
+
+<aside class="nav-panel" id="navPanel" aria-label="Menu" aria-hidden="true">
+  <div class="nav-panel-head">
+    <span data-i18n="menu_title">Меню</span>
+    <button class="icon-btn" id="closeBtn" type="button" aria-label="Close">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <ul>
+    <li><a href="index.html#about" tabindex="-1" data-i18n="nav_about">Обо мне</a></li>
+    <li><a href="index.html#work" tabindex="-1" data-i18n="nav_work">Проекты</a></li>
+    <li><a href="index.html#roadmap" tabindex="-1" data-i18n="nav_roadmap">Дорожная карта</a></li>
+    <li><a href="index.html#contact" tabindex="-1" data-i18n="nav_contact">Контакты</a></li>
+  </ul>
+  <div class="nav-panel-foot">Sergey · 2026</div>
+</aside>
+
+<main>
+<section class="err">
+  <div class="err-inner">
+
+    <div class="err-code reveal">4<span class="zero">0</span>4<span class="cursor"></span></div>
+
+    <div class="err-content reveal">
+      <span class="err-tag" data-i18n="err_tag">HTTP 404 · NOT FOUND</span>
+      <h1 class="err-title">
+        <span data-i18n="err_t1">Страница</span>
+        <span class="accent" data-i18n="err_t2">не найдена</span>
+      </h1>
+      <p class="err-desc" data-i18n="err_desc" data-i18n-html>
+        Запрашиваемая страница не существует. Возможно, она была перемещена, удалена, или вы просто ошиблись адресом.
+      </p>
+
+      <div class="err-console">
+        <span class="ln"><span class="p">&gt;</span> <span class="k">GET</span> <span class="v" id="errPath">/</span></span>
+        <span class="ln"><span class="p">&gt;</span> <span class="d" data-i18n="err_cl1">статус:</span> <span class="k">404</span> <span class="d" data-i18n="err_cl2">не найдено</span></span>
+        <span class="ln"><span class="p">&gt;</span> <span class="d" data-i18n="err_cl3">источник:</span> <span class="v" data-i18n="err_cl4">seregannj.is-a.dev</span></span>
+        <span class="ln"><span class="p">&gt;</span> <span class="cur">_</span></span>
+      </div>
+
+      <div class="err-actions">
+        <a href="index.html" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span data-i18n="err_home">На главную</span>
+        </a>
+        <button id="errBack" class="btn btn-secondary" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          <span data-i18n="err_back">Назад</span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="footer-terminal"><span class="prompt">&gt; </span><span id="footerTyping"></span></div>
+  <p>© 2026 <a href="https://github.com/Seregannj" target="_blank" rel="noopener">@Seregannj</a></p>
+</footer>
+
+<button class="back-top" id="backTop" type="button" aria-label="Наверх">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+(function(){
+'use strict';
+
+var root = document.documentElement;
+
+var T = {
+  ru: {
+    nav_about:'Обо мне', nav_work:'Проекты', nav_roadmap:'Дорожная карта', nav_contact:'Контакты',
+    menu_title:'Меню',
+    err_tag:'HTTP 404 · NOT FOUND',
+    err_t1:'Страница',
+    err_t2:'не найдена',
+    err_desc:'Запрашиваемая страница не существует. Возможно, она была перемещена, удалена, или вы просто ошиблись адресом.',
+    err_cl1:'статус:', err_cl2:'не найдено', err_cl3:'источник:', err_cl4:'seregannj.is-a.dev',
+    err_home:'На главную', err_back:'Назад',
+    footer_phrases:[
+      'Будущее начинается здесь',
+      'Ракета не взлетела если бы у неё не горел хвост',
+      'Python · AI · React',
+      'Дорогу осилит идущий',
+      'seregannj.is-a.dev'
+    ]
+  },
+  en: {
+    nav_about:'About', nav_work:'Projects', nav_roadmap:'Roadmap', nav_contact:'Contact',
+    menu_title:'Menu',
+    err_tag:'HTTP 404 · NOT FOUND',
+    err_t1:'Page',
+    err_t2:'not found',
+    err_desc:"The page you’re looking for doesn’t exist. It may have been moved, deleted, or you just typed the URL wrong.",
+    err_cl1:'status:', err_cl2:'not_found', err_cl3:'source:', err_cl4:'seregannj.is-a.dev',
+    err_home:'Back home', err_back:'Go back',
+    footer_phrases:[
+      'The future starts here',
+      "A rocket wouldn't take off without fire in its tail",
+      'Python · AI · React',
+      'The road is mastered by walking',
+      'seregannj.is-a.dev'
+    ]
+  }
+};
+
+var userLang = (navigator.language || 'en').slice(0,2);
+var currentLang = 'ru';
+
+function getStore(k){try{return localStorage.getItem('p:'+k)}catch(e){return null}}
+function setStore(k,v){try{localStorage.setItem('p:'+k,v)}catch(e){}}
+
+function detectLang(){
+  var s = getStore('lang');
+  if (s === 'ru' || s === 'en') return s;
+  return userLang === 'ru' ? 'ru' : 'en';
+}
+
+function setLang(lang){
+  currentLang = lang;
+  var t = T[lang]; if (!t) return;
+  root.setAttribute('lang', lang);
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined){
+      if (el.hasAttribute('data-i18n-html')) el.innerHTML = t[key];
+      else el.textContent = t[key];
+    }
+  });
+  document.title = (lang === 'ru' ? '404 — Страница не найдена' : '404 — Page not found');
+  document.getElementById('langToggle').textContent = lang === 'ru' ? 'EN' : 'RU';
+  if (typeof startTypingLoop === 'function') startTypingLoop();
+}
+
+document.getElementById('langToggle').addEventListener('click', function(){
+  var next = currentLang === 'ru' ? 'en' : 'ru';
+  setLang(next);
+  setStore('lang', next);
+});
+
+// theme
+var themeBtn = document.getElementById('themeToggle');
+themeBtn.addEventListener('click', function(){
+  var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  root.setAttribute('data-theme', next);
+  setStore('theme', next);
+});
+window.matchMedia('(prefers-color-scheme:dark)').addEventListener('change', function(e){
+  if (!getStore('theme')) root.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+});
+
+// menu
+var menuBtn  = document.getElementById('menuBtn'),
+    panel    = document.getElementById('navPanel'),
+    closeB   = document.getElementById('closeBtn'),
+    bg       = document.getElementById('navBackdrop'),
+    panelLinks = panel.querySelectorAll('a'),
+    scrollY  = 0;
+
+function openMenu(){
+  scrollY = window.scrollY;
+  document.body.style.cssText = 'position:fixed;top:-'+scrollY+'px;left:0;right:0;width:100%';
+  menuBtn.classList.add('active');
+  panel.classList.add('open');
+  bg.classList.add('open');
+  menuBtn.setAttribute('aria-expanded','true');
+  panel.setAttribute('aria-hidden','false');
+  panelLinks.forEach(function(a){a.setAttribute('tabindex','0')});
+  closeB.focus();
+}
+function closeMenu(){
+  menuBtn.classList.remove('active');
+  panel.classList.remove('open');
+  bg.classList.remove('open');
+  menuBtn.setAttribute('aria-expanded','false');
+  panel.setAttribute('aria-hidden','true');
+  document.body.style.cssText = '';
+  window.scrollTo({top: scrollY, behavior: 'instant'});
+  panelLinks.forEach(function(a){a.setAttribute('tabindex','-1')});
+  menuBtn.focus();
+}
+menuBtn.addEventListener('click', function(e){
+  e.stopPropagation();
+  if (panel.classList.contains('open')) closeMenu();
+  else openMenu();
+});
+closeB.addEventListener('click', closeMenu);
+bg.addEventListener('click', closeMenu);
+panelLinks.forEach(function(a){a.addEventListener('click', closeMenu)});
+document.addEventListener('keydown', function(e){
+  if (e.key === 'Escape' && panel.classList.contains('open')) closeMenu();
+});
+window.addEventListener('resize', function(){
+  clearTimeout(window._rt);
+  window._rt = setTimeout(function(){
+    if (window.innerWidth >= 1024 && panel.classList.contains('open')) closeMenu();
+  }, 150);
+});
+
+// reveal
+var revealObs = new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){if(entry.isIntersecting) entry.target.classList.add('visible')})
+}, {threshold: 0.12, rootMargin: '0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el)});
+
+// back-top
+var backBtn = document.getElementById('backTop');
+if (backBtn){
+  window.addEventListener('scroll', function(){
+    backBtn.classList.toggle('show', window.scrollY > 500);
+  }, {passive: true});
+  backBtn.addEventListener('click', function(){
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  });
+}
+
+// err: показать реальный path
+var errPathEl = document.getElementById('errPath');
+if (errPathEl) errPathEl.textContent = window.location.pathname || '/';
+
+// err: кнопка «Назад»
+var errBack = document.getElementById('errBack');
+if (errBack){
+  if (window.history.length <= 1) errBack.classList.add('btn-hidden');
+  errBack.addEventListener('click', function(){
+    if (window.history.length > 1) window.history.back();
+    else window.location.href = 'index.html';
+  });
+}
+
+// footer typing
+var typingEl   = document.getElementById('footerTyping');
+var typingTimer = null;
+var phase = 'typing', phraseIdx = 0, charIdx = 0;
+var TYPE_SPEED = 65, DELETE_SPEED = 30, PAUSE_AFTER_TYPE = 1800, PAUSE_BEFORE_TYPE = 400;
+
+function typingTick(){
+  var list = (T[currentLang] && T[currentLang].footer_phrases) || T.ru.footer_phrases;
+  var cur  = list[phraseIdx];
+  if (phase === 'typing'){
+    if (charIdx < cur.length){
+      typingEl.textContent = cur.substring(0, charIdx + 1);
+      charIdx++;
+      typingTimer = setTimeout(typingTick, TYPE_SPEED);
+    } else {
+      phase = 'pausing';
+      typingTimer = setTimeout(typingTick, PAUSE_AFTER_TYPE);
+    }
+  } else if (phase === 'pausing'){
+    phase = 'deleting';
+    typingTimer = setTimeout(typingTick, 0);
+  } else if (phase === 'deleting'){
+    if (typingEl.textContent.length > 0){
+      typingEl.textContent = cur.substring(0, typingEl.textContent.length - 1);
+      typingTimer = setTimeout(typingTick, DELETE_SPEED);
+    } else {
+      phase = 'typing';
+      phraseIdx = (phraseIdx + 1) % list.length;
+      charIdx = 0;
+      typingTimer = setTimeout(typingTick, PAUSE_BEFORE_TYPE);
+    }
+  }
+}
+
+function startTypingLoop(){
+  if (!typingEl) return;
+  if (typingTimer) clearTimeout(typingTimer);
+  phase = 'typing'; phraseIdx = 0; charIdx = 0;
+  typingEl.textContent = '';
+  typingTick();
+}
+
+setLang(detectLang());
+
+})();
+</script>
+</body>
+</html>
